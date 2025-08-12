@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPHSL University Supply Center Kiosk</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            text-align: center;
+        }
+        .Department {
+            display: inline-block;
+            width: 150px;
+            height: 100px;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .Department:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .Department:hover i {
+            color: #7380ec;
+        }
+        .Department i {
+            font-size: 36px;
+            color: #7380ec;
+            margin-bottom: 10px;
+        }
+        .Department span {
+            display: block;
+            font-size: 14px;
+            color: #666;
+        }
+        h1 {
+    text-align: center;
+     color: #7380ec;
+}
+    </style>
+</head>
+<body>
+<h1> University Supply Center</h1>
+<div class="container">
+    <form action="product.php" method="get" onsubmit="generateDepartmentNumber()">
+        <button class="Department" type="submit" name="department" value="CAS">
+            <i class="material-icons">palette</i>
+            <span>CAS</span>
+        </button>
+        <button class="Department" type="submit" name="department" value="CBA">
+            <i class="material-icons">account_balance</i>
+            <span>CBA</span>
+        </button>
+        <button class="Department" type="submit" name="department" value="CCS">
+            <i class="material-icons">computer</i>
+            <span>CCS</span>
+        </button>
+        <button class="Department" type="submit" name="department" value="CRIM">
+            <i class="material-icons">local_police</i>
+            <span>CRIM</span>
+        </button>
+        <button class="Department" type="submit" name="department" value="EDUC">
+            <i class="material-icons">history_edu</i>
+            <span>EDUC</span>
+        </button>
+        <button class="Department" type="submit" name="department" value="CEAA">
+            <i class="material-icons">flight</i>
+            <span>CEAA</span>
+        </button>
+        <button class="Department" type="submit" name="department" value="CIHM">
+            <i class="material-icons">room_service</i>
+            <span>CIHM</span>
+        </button>
+        <button class="Department" type="submit" name="department" value="CME">
+            <i class="material-icons">directions_boat</i>
+            <span>CME</span>
+        </button>
+        <button class="Department" type="submit" name="department" value="SHS">
+            <i class="material-icons">school</i>
+            <span>SHS</span>
+        </button>
+        <button class="Department" type="submit" name="department" value="ELEMJHS">
+            <i class="material-icons">school</i>
+            <span>ELEM/JHS</span>
+        </button>
+    </form>
+</div>
+
+<script>
+    function generateDepartmentNumber() {
+        var departments = document.getElementsByName("department");
+        departments.forEach(function(button) {
+            button.value += generateRandomNumber();
+        });
+    }
+
+    function generateRandomNumber() {
+        return Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+    }
+</script>
+
+</body>
+</html>
+
